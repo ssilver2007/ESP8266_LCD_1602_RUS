@@ -10,7 +10,9 @@ void setup()
   String str;
   str = "система";
 
-  lcd1.init(); // Инициализация LCD №1
+  lcd1.init(); // Инициализация LCD №1. По умолчанию для ESP8266 (4 - SDA, 5 - SCL)
+  //lcd1.init(0, 2); //ESP8266-01 I2C для пинов 0 - SDA, 2 - SCL
+
   lcd2.init(); // Инициализация LCD №2
   // Печать сообщения на LCD №1
   lcd1.backlight();
