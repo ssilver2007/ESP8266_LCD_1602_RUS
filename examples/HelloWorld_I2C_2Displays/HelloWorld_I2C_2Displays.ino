@@ -1,6 +1,6 @@
 //Пример для подключения двух дисплеев по шине I2C
 //
-#include <ESP8266_LCD_1602_RUS_ALL.h>
+#include <ESP8266_LCD_1602_RUS.h>
 
 LCD_1602_RUS lcd1(0x3B, 16, 2);
 LCD_1602_RUS lcd2(0x3F, 16, 2);
