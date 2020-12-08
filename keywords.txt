@@ -8,7 +8,6 @@
 
 LCD_1602_RUS	KEYWORD1
 LCD_1602_RUS_ALL	KEYWORD1
-_LCD_TYPE KEYWORD1
 
 ###########################################
 # Methods and Functions (KEYWORD2)
