@@ -54,7 +54,7 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
   public:
     LCD_1602_RUS (uint8_t lcd_Addr, uint8_t lcd_cols, uint8_t lcd_rows, uint8_t user_custom_symbols = 0) : LiquidCrystal_I2C (lcd_Addr, lcd_cols, lcd_rows)//Конструктор для подключения I2C
     {
-      Init(user_custom_symbols, lcd_cols, lcd_rows);
+      Init(user_custom_symbols/*, lcd_cols, lcd_rows*/);
     }
 
     //Для ESP8266
@@ -63,13 +63,13 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
     {
       begin();
     }
-#else
+/*#else
     void init(uint8_t sda = SDA, uint8_t scl = SCL)
     {
       Wire.begin(sda, scl);
       //_displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
       LiquidCrystal_I2C::begin(_cols, _rows);
-    }
+    }*/
 #endif
 
     void print(const wchar_t* _str)
@@ -199,10 +199,10 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
     }
 
   private:
-    void Init(uint8_t _user_custom_symbols, uint8_t lcd_cols, uint8_t lcd_rows)//Инициализация конструктора
+    void Init(uint8_t _user_custom_symbols/*, uint8_t lcd_cols, uint8_t lcd_rows*/)//Инициализация конструктора
     {
-      _cols = lcd_cols;
-      _rows = lcd_rows;
+      //_cols = lcd_cols;
+      //_rows = lcd_rows;
       max_symbol_count = 8 - _user_custom_symbols;
       cursor_col = 0;
       cursor_row = 0;
@@ -335,8 +335,8 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
       }
     }
 
-    uint8_t _cols;
-    uint8_t _rows;
+    //uint8_t _cols;
+    //uint8_t _rows;
     uint8_t max_symbol_count;  //Максимальное количество переназначаемых символов (по умолчанию 8: от 0 до 7)
     int symbol_index;//Индекс символа (от 0 до MAX_SYMBOL_COUNT)
     uint8_t cursor_col;
