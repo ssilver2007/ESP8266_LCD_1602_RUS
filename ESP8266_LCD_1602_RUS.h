@@ -58,12 +58,19 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
     }
 
     //Для ESP8266
+#ifdef FDB_LIQUID_CRYSTAL_I2C_H
+    void init()
+    {
+      begin();
+    }
+#else
     void init(uint8_t sda = SDA, uint8_t scl = SCL)
     {
       Wire.begin(sda, scl);
       //_displayfunction = LCD_4BITMODE | LCD_1LINE | LCD_5x8DOTS;
       LiquidCrystal_I2C::begin(_cols, _rows);
     }
+#endif
 
     void print(const wchar_t* _str)
     {
