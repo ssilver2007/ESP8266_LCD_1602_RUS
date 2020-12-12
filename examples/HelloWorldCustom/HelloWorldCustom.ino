@@ -30,6 +30,8 @@ uint8_t symbol_two[8] = {
 void setup()
 {
   lcd.init(); // Инициализация LCD
+  //lcd.init(0, 2); //ESP8266-01 I2C: 0-SDA 2-SCL
+  
   // Печать сообщения на LCD
   lcd.backlight();
   lcd.setCursor(6, 0);
