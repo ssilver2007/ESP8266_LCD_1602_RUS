@@ -7,6 +7,8 @@ LCD_1602_RUS lcd(0x27, 16, 2);
 void setup()
 {
   lcd.init(); // Инициализация LCD
+  //lcd.init(0, 2); //ESP8266-01 I2C: 0-SDA 2-SCL
+
   // Печать сообщения на LCD
   lcd.backlight();
   lcd.print("Ввод с монитора");
