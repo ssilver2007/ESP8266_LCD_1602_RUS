@@ -8,6 +8,7 @@ void setup()
   str = ". Hexadecimal";
 
   lcd.init(); //Инициализация LCD по умолчанию для ESP8266 (4 - SDA, 5 - SCL)
+  //lcd.init(0, 2); //ESP8266-01 I2C: 0-SDA 2-SCL
 
   // Печать сообщения на LCD
   lcd.backlight();
