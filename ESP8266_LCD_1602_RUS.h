@@ -63,7 +63,7 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
 #if defined (ESP8266)
     void init(uint8_t _sda = SDA, uint8_t _scl = SCL)
     {
-      Wire.begin(_sda, _scl);
+      Wire.pins(_sda, _scl);
       begin();
     }
 #else
