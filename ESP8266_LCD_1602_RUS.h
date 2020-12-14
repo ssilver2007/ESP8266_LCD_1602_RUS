@@ -7,7 +7,11 @@
 #include "WProgram.h"
 #endif
 
-//#include <avr/pgmspace.h>
+#ifdef ESP8266
+  #include <pgmspace.h>
+#else
+  #include <avr/pgmspace.h>
+#endif
 #include <LiquidCrystal_I2C.h>
 #include <Print.h>
 #include <Wire.h>
