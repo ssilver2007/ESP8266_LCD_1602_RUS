@@ -8,9 +8,9 @@
 #endif
 
 #ifdef ESP8266
-  #include <pgmspace.h>
+#include <pgmspace.h>
 #else
-  #include <avr/pgmspace.h>
+#include <avr/pgmspace.h>
 #endif
 #include <LiquidCrystal_I2C.h>
 #include <Print.h>
@@ -20,7 +20,7 @@
 #define BYTE 0
 typedef uint8_t* _uint_farptr_t;
 #ifndef memcpy_PF
-#define memcpy_PF(dest, src, len) memcpy((dest), (src), (len))
+#define memcpy_PF(dest, src, len) memcpy_P((dest), (src), (len))
 #endif
 
 //Описание класса набора изменяемых символов
