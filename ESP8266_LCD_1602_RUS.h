@@ -62,28 +62,26 @@ class LCD_1602_RUS : public LiquidCrystal_I2C {
       Init(user_custom_symbols);
     }
 
-    //Для ESP8266
+//Для ESP8266
 #ifdef FDB_LIQUID_CRYSTAL_I2C_H
-#if defined (ESP8266)
-void init(uint8_t _sda = SDA, uint8_t _scl = SCL)
-{
-Wire.pins(_sda, _scl);
-begin();
-}
-#else
-void init()
-{
-begin();
-}
-#endif
-#else
-#if defined (ESP8266)
-void init(uint8_t _sda = SDA, uint8_t _scl = SCL)
-{
-Wire.pins(_sda, _scl);
-init();
-}
-#endif
+  #if defined(ARDUINO_ESP8266_ESP01)
+    void init(uint8_t _sda = SDA, uint8_t _scl = SCL)
+    {
+      Wire.pins(_sda, _scl);
+      begin();
+    }
+  #else
+    void init()
+    {
+      begin();
+    }
+  #endif
+#elif defined(ARDUINO_ESP8266_ESP01)  //ESP8266-01
+  void init(uint8_t _sda = SDA, uint8_t _scl = SCL)
+  {
+    Wire.pins(_sda, _scl);
+    init();
+  }
 #endif
 
     void print(const wchar_t* _str)
